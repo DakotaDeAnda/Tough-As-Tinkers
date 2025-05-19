@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "thermaltinkersmod:thermal_reinforcement"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  },
+  "result": "thermaltinkersmod:thermal_regulation",
+  "max_level": 1,
+  "slots": {
+    "defense": 1
+  }
+}

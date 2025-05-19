@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:modifier",
+  "loader": "tconstruct:generic",
+  "color": "#32C8FF",
+  "max_level": 1,
+  "slots": {
+    "defense": 1
+  }
+}
