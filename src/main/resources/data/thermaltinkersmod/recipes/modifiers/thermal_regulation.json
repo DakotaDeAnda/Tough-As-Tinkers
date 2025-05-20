@@ -9,7 +9,7 @@
     "tag": "tconstruct:modifiable/armor/chestplate"
   },
   "result": "thermaltinkersmod:thermal_regulation",
-  "max_level": 1,
+  "level": 1,
   "allow_overlevel": false,
   "slots": {
     "defense": 1
