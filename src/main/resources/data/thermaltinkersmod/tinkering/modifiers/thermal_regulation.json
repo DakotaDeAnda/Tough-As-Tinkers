@@ -3,7 +3,15 @@
   "loader": "tconstruct:generic",
   "color": "#32C8FF",
   "max_level": 1,
+  "allow_multiple": false,
+  "requirements": {
+    "modifiers": {
+      "thermaltinkersmod:thermal_regulation": "absent"
+    }
+  },
   "slots": {
     "defense": 1
-  }
+  },
+  "name": "modifier.thermaltinkersmod.thermal_regulation",
+  "description": "modifier.thermaltinkersmod.thermal_regulation.description"
 }

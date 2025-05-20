@@ -10,6 +10,7 @@
   },
   "result": "thermaltinkersmod:thermal_regulation",
   "max_level": 1,
+  "allow_overlevel": false,
   "slots": {
     "defense": 1
   }

@@ -1,7 +1,9 @@
 package com.slurmpy.thermaltinkersmod.modifier;
 
-import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextColor;
+import org.slf4j.Logger;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 
 public class ThermalRegulationModifier extends Modifier {
@@ -17,5 +19,21 @@ public class ThermalRegulationModifier extends Modifier {
         return 75;
     }
 
-    // Add logic later if needed
+    @Override
+    public boolean shouldDisplay(boolean advanced) {
+        return true; // always show in tooltip
+    }
+
+    @Override
+    public Component getDisplayName(int level) {
+        // only append level if level > 1
+        if (level > 1) {
+            return Component.translatable(getTranslationKey())
+                    .append(" " + level)
+                    .withStyle(style -> style.withColor(0x32C8FF));
+        } else {
+            return Component.translatable(getTranslationKey())
+                    .withStyle(style -> style.withColor(0x32C8FF));
+        }
+    }
 }
