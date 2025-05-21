@@ -23,7 +23,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
-import toughasnails.api.temperature.TemperatureHelper;
+import net.minecraftforge.fml.ModList;
 
 @Mod(ThermalTinkersMod.MODID)
 public class ThermalTinkersMod {
@@ -62,8 +62,9 @@ public class ThermalTinkersMod {
         LOGGER.info("HELLO FROM COMMON SETUP");
 
         event.enqueueWork(() -> {
-            TemperatureHelper.registerPlayerTemperatureModifier(new ThermalRegulationTempModifier());
-            LOGGER.info("Registered Thermal Regulation temperature modifier");
+            if (ModList.get().isLoaded("toughasnails")) {
+                com.slurmpy.thermaltinkersmod.compat.ToughAsNailsCompat.register();
+            }
         });
 
         if (Config.logDirtBlock)
