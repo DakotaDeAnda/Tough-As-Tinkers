@@ -14,7 +14,9 @@ public class DataGenerators {
         var output = gen.getPackOutput();
 
         if (event.includeServer()) {
-            gen.addProvider(true, new ModModifierDataProvider(output));
+            System.out.println("Including server datagen providers...");
+            gen.addProvider(true, new ModModifierProvider(output));
+            gen.addProvider(true, new ModModifierRecipeProvider(output));
         }
 
         // Optionally print to confirm TAN is not loaded
