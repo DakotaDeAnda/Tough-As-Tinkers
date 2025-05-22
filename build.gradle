@@ -89,11 +89,13 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.logging.markers', 'REGISTRIES'
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
+            property 'forge.logging.markers', 'REGISTRIES'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -113,6 +115,7 @@ minecraft {
                     source sourceSets.main
                 }
             }
+            property 'forge.logging.markers', 'REGISTRIES'
         }
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.data.recipes.RecipeProvider;
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
@@ -34,7 +35,7 @@ public class ModModifierRecipeProvider extends RecipeProvider {
     }
 
     private void addItemRecipes(Consumer<FinishedRecipe> consumer) {
-        String folder = "tools/modifiers/compat/";
+        ResourceLocation id = new ResourceLocation(MODID, "compat/thermal_reinforcement");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, THERMAL_REINFORCEMENT.get())
                 .define('L', ItemTags.LEAVES) // #minecraft:leaves
@@ -45,15 +46,17 @@ public class ModModifierRecipeProvider extends RecipeProvider {
                 .pattern("WWW")
                 .unlockedBy("has_leaves", has(ItemTags.LEAVES))
                 .unlockedBy("has_pattern", has(slimeknights.tconstruct.tables.TinkerTables.pattern))
-                .save(consumer, modResource("modifiers/compat/thermal_reinforcement"));
+                .save(consumer, id);
     }
 
     private void addModifierRecipes(Consumer<FinishedRecipe> consumer) {
-        ModifierRecipeBuilder.modifier(THERMAL_REGULATION.getId())
+        ModifierId modifierId = new ModifierId(MODID, "thermal_regulation");
+
+        ModifierRecipeBuilder.modifier(modifierId)
                 .addInput(Ingredient.of(THERMAL_REINFORCEMENT.get()))
                 .setTools(TinkerTags.Items.CHESTPLATES)
                 .setMaxLevel(1).checkTraitLevel()
                 .setSlots(SlotType.DEFENSE, 1)
-                .save(consumer, modResource("modifiers/thermal_regulation"));
+                .save(consumer, modifierId);
     }
 }
